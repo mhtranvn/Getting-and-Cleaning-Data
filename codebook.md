@@ -27,35 +27,41 @@ For the full data description please refers to <a href="http://archive.ics.uci.e
 <ul>
 <li><em>subject</em>: the subject who performed the activity.
        <ul>
-       <li> + Datatype: interger.</li> 
-       <li>+ Values ranged from 1 to 30</li>
+       <li> Datatype: interger.</li> 
+       <li> Values ranged from 1 to 30</li>
        </ul>
 </li>
-<li><em>activity</em>: activity performed by a subject. 
-       + Datatype: factor with 6 levels:WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS,SITTING, STANDING, LAYING</li>
-<li><em>66 other variables</em>: average value by subject and activity of mean and standard deviation of featured measurements. </li>
-<li>Each variable is in the partern: 
-tBodyAcc-XYZ
-tGravityAcc-XYZ
-tBodyAccJerk-XYZ
-tBodyGyro-XYZ
-tBodyGyroJerk-XYZ
-tBodyAccMag
-tGravityAccMag
-tBodyAccJerkMag
-tBodyGyroMag
-tBodyGyroJerkMag
-fBodyAcc-XYZ
-fBodyAccJerk-XYZ
-fBodyGyro-XYZ
-fBodyAccMag
-fBodyAccJerkMag
-fBodyGyroMag
-fBodyGyroJerkMag
-and with or without -mean(), -std() with denote mean and standard deviation of measurements
-and with or without X,Y,Z which denote axial direction</li>
+<li><em>activity</em>: activity performed by a subject.
+       <ul>
+       <li> Datatype: factor with 6 levels:WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS,SITTING, STANDING, LAYING</li>
+       </ul>
+</li>
+<li><em>66 other variables</em>: average value by subject and activity of mean and standard deviation of featured measurements. <br>
+Each variable is in the partern: 
+tBodyAcc-XYZ,
+tGravityAcc-XYZ,
+tBodyAccJerk-XYZ,
+tBodyGyro-XYZ,
+tBodyGyroJerk-XYZ,
+tBodyAccMag,
+tGravityAccMag,
+tBodyAccJerkMag,
+tBodyGyroMag,
+tBodyGyroJerkMag,
+fBodyAcc-XYZ,
+fBodyAccJerk-XYZ,
+fBodyGyro-XYZ,
+fBodyAccMag,
+fBodyAccJerkMag,
+fBodyGyroMag,
+fBodyGyroJerkMag <br>
+and with or without -mean(), -std() with denote mean and standard deviation of measurements<br>
+and with or without X,Y,Z which denote axial direction<br>
+<ul>
 <li>Datatype: numeric</li>
 <li>Value ranged from [-1,1]</li>
+</ul>
+</li>
 </ul>
 
 </body>
