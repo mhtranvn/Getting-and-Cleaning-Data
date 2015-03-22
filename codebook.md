@@ -27,10 +27,11 @@ For the full data description please refers to <a href="http://archive.ics.uci.e
 <ul>
 <li><em>subject</em>: the subject who performed the activity. 
        + Datatype: interger. 
-       + Values ranged from 1 to 30</li>
+       + Values ranged from 1 to 30
+</li>
 <li><em>activity</em>: activity performed by a subject. 
        + Datatype: factor with 6 levels:WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS,SITTING, STANDING, LAYING</li>
-<li><em>66 other variables</em>: average value by subject and activity of mean and standard deviation of measurements. </li>
+<li><em>66 other variables</em>: average value by subject and activity of mean and standard deviation of featured measurements. </li>
 <li>Each variable is in the partern: 
 tBodyAcc-XYZ
 tGravityAcc-XYZ
