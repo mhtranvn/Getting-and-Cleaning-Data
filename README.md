@@ -16,7 +16,8 @@ providing the file is in R working directory (credit to David Hood)
 **Script for performing the analysis**
 The script for performing the analysis is named *run_analysis.R*.    
 After downloading source data from above link, the data will be in the file named *getdata-projectfiles-UCI HAR Dataset.zip*. Unzip this file and we will get a directory named *UCI HAR Dataset*. Set this directory as your R' session working directory and copy the file *run_analysis.R* into this directory. You should not modify the directory structure as well as files inside it. Source the file *run_analysis.R* and we will get output file *average_data.txt* in the working directory.   
-The script *run_analysis.R* does following:   
+The script *run_analysis.R* does following:    
+* Reading activity and features labels from working directory into data frames *features* and *activities*
 * Reading in the source data using command read.table() for both test and training dataset from respective *test* and *train* directory. For each of the set it will read in 561-features vector, it's corresponding subject and activity vectors. Then we perform merging them into one data frame using cbind() for each test and training data. After that we removed temporary data frames to free up memory      
 ```
 data_test <- read.table("./test/X_test.txt", header=FALSE)
@@ -24,4 +25,14 @@ subject_test <- read.table("./test/subject_test.txt",header=FALSE)
 activity_test <- read.table("./test/y_test.txt", header=FALSE)
 test<-cbind(subject_test, activity_test, data_test)
 rm(data_test, subject_test, activity_test)
+```
+* Using row binding to merge *test* and *train* data frames together. As a result we will get a big data frame *merged_data* size of 10299 and 563 (including subject variable, activity variable and 561 variables for 561 features).   
+* We constructed a vector of descriptive variable names from *"subject"*, *"activity"* and *features* vector and assign it to column names of *merged_data* to give it more descriptive variable names   
+```
+colnames(merged_data)<-c("subject","activity",features$V2)
+```
+* Based on course project requirements of "only the measurements on the mean and standard deviation for each measurement" we constructed a character vector *selected_cols* of selected variable names which we are going to select into our new data frame. Using *grep* command we select only variable names which consist of *mean()* and *std()* words. By introducing *selected_cols* we will have a freedom to choose a set of variables which we need only by modifying this vector. Then we use subsetting to get our *selected_data* frame with only means and standard deviations   
+```
+selected_cols <- c("subject","activity",features$V2[grep("mean\\(\\)|std\\(\\)",features$V2, ignore.case=FALSE)])
+selected_data <- merged_data[,selected_cols]
 ```
