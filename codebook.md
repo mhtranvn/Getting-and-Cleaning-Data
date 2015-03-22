@@ -37,8 +37,8 @@ For the full data description please refers to <a href="http://archive.ics.uci.e
        </ul>
 </li>
 <li><em>66 other variables</em>: average value by subject and activity of mean and standard deviation of featured measurements. <br>
-Each variable is in the partern: 
-tBodyAcc-XYZ,
+Each variable is in the partern with 3 components: <br> 
+1) tBodyAcc-XYZ,
 tGravityAcc-XYZ,
 tBodyAccJerk-XYZ,
 tBodyGyro-XYZ,
@@ -55,8 +55,8 @@ fBodyAccMag,
 fBodyAccJerkMag,
 fBodyGyroMag,
 fBodyGyroJerkMag <br>
-and with or without -mean(), -std() with denote mean and standard deviation of measurements<br>
-and with or without X,Y,Z which denote axial direction<br>
+2) and with or without -mean(), -std() with denote mean and standard deviation of measurements<br>
+3) and with or without X,Y,Z which denote axial direction<br>
 <ul>
 <li>Datatype: numeric</li>
 <li>Value ranged from [-1,1]</li>
