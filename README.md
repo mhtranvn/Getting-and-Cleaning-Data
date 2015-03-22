@@ -15,9 +15,9 @@ providing the file is in R working directory (credit to David Hood)
    
 **Script for performing the analysis**
 The script for performing the analysis is named *run_analysis.R*.    
-After downloading source data from above link, the data will be in the file named *getdata-projectfiles-UCI HAR Dataset.zip*. Unzip this file and we will get a directory named *UCI HAR Dataset*. Set this directory as your R' session working directory and copy the file *run_analysis.R* into this directory. You should not modify the directory structure as well as files inside it. Source the file *run_analysis.R* and we will get output file *average_data.txt* in the working directory.   
-The script *run_analysis.R* does following \:       
-* Reading activity and features labels from working directory into data frames *features* and *activities*
+After downloading source data from above link, the data will be in the file named *getdata-projectfiles-UCI HAR Dataset.zip*. Unzip this file and we will get a directory named *UCI HAR Dataset*. Set this directory as your R' session working directory and copy the file *run_analysis.R* into this directory. You should not modify the directory structure as well as files inside it. Source the file *run_analysis.R* and we will get an output file *average_data.txt* in the working directory.   
+The script *run_analysis.R* does following:       
+* Reading in activity and features labels from working directory into data frames *features* and *activities*
 * Reading in the source data using command read.table() for both test and training dataset from respective *test* and *train* directory. For each of the set it will read in 561-features vector, it's corresponding subject and activity vectors. Then we perform merging them into one data frame using cbind() for each test and training data. After that we removed temporary data frames to free up memory      
 ```
 data_test <- read.table("./test/X_test.txt", header=FALSE)
@@ -31,8 +31,20 @@ rm(data_test, subject_test, activity_test)
 ```
 colnames(merged_data)<-c("subject","activity",features$V2)
 ```
-* Based on course project requirements of "only the measurements on the mean and standard deviation for each measurement" we constructed a character vector *selected_cols* of selected variable names which we are going to select into our new data frame. Using *grep* command we select only variable names which consist of *mean()* and *std()* words. By introducing *selected_cols* we will have a freedom to choose a set of variables which we need only by modifying this vector. Then we use subsetting to get our *selected_data* frame with only means and standard deviations   
+* Based on course project requirements of "only the measurements on the mean and standard deviation for each measurement" we constructed a character vector *selected_cols* of selected variable names which we are going to select into our new data frame. Using *grep* command we select only variable names which consist of *mean()* and *std()* words from *features* data frame. By introducing *selected_cols* we will have a freedom to choose a set of variables which we need for our new data frame only by modifying this vector. Then we use subsetting to get our *selected_data* frame with only means and standard deviations   
 ```
 selected_cols <- c("subject","activity",features$V2[grep("mean\\(\\)|std\\(\\)",features$V2, ignore.case=FALSE)])
 selected_data <- merged_data[,selected_cols]
 ```
+* Convert *activity* column to factor, then use *activities* vector of activity label to change factor labels to the more descriptive ones   
+```
+selected_data$activity <- factor(selected_data$activity)
+## change activity factor levels to a more descriptive names 
+levels(selected_data$activity) <- activities$V2
+```
+* Convert the *selected_data* to type of tbl *selected_tbl* to use with *dplyr* package. 
+* Group this *selected_tbl* by subject and activity, then use *summarise_each()* to calculate means for each remaning featured variable by subject and activity.   
+```
+tidy_data<-summarise_each(group_by(selected_tbl,subject,activity),funs(mean))
+```
+* Last step is to write this tidy data frame to the file *average_data.txt*
