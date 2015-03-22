@@ -42,7 +42,7 @@ selected_data$activity <- factor(selected_data$activity)
 ## change activity factor levels to a more descriptive names 
 levels(selected_data$activity) <- activities$V2
 ```
-* Convert the *selected_data* to type of tbl *selected_tbl* to use with *dplyr* package. 
+* Convert the *selected_data* to *selected_tbl* type of tbl to use with *dplyr* package. 
 * Group this *selected_tbl* by subject and activity, then use *summarise_each()* to calculate means for each remaning featured variable by subject and activity.   
 ```
 tidy_data<-summarise_each(group_by(selected_tbl,subject,activity),funs(mean))
