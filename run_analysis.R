@@ -39,7 +39,7 @@ selected_data <- merged_data[,selected_cols]
 
 selected_data$activity <- factor(selected_data$activity)
 ## change activity factor levels to a more descriptive names 
-levels(selected_data$activity) <- activities$V2
+levels(selected_data$activity) <- gsub("_"," ",activities$V2)
 
 ## STEP 4. Appropriately labels the data set with descriptive variable names
 ## modify variable names vector by removing "(" and ")" to make names more compatible with variable naming standard
