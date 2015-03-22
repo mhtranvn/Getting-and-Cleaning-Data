@@ -36,11 +36,11 @@ colnames(merged_data)<-c("subject","activity",features$V2)
 selected_cols <- c("subject","activity",features$V2[grep("mean\\(\\)|std\\(\\)",features$V2, ignore.case=FALSE)])
 selected_data <- merged_data[,selected_cols]
 ```
-* Convert *activity* column to factor, then use *activities* vector of activity label to change factor labels to the more descriptive ones   
+* Convert *activity* column to factor, then use *activities* vector of activity labels to change factor labels to the more descriptive ones, and remove underscores from new factor labels   
 ```
 selected_data$activity <- factor(selected_data$activity)
 ## change activity factor levels to a more descriptive names 
-levels(selected_data$activity) <- activities$V2
+levels(selected_data$activity) <- gsub("_"," ",activities$V2)
 ```
 * Remove "(" and ")" from *selected_data* vector of variable names to make them more compatible with R variable naming standard. Since we do not have more descriptive information in the source's *features_info.txt* so it is quite hard to give columns more descriptive names not running into the risk that it may incorrectly reflect the nature of data in the column. Here we only show that technically we can change variable names to something more descriptive by just modifying the names vector
 ```
