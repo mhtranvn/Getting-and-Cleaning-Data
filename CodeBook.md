@@ -16,7 +16,7 @@ For both sets there are vectors for: </li>
 <li>features descriptive names</li>
 </ul>
 
-For the full data description please refers to <a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones</a> and REAME file included in dataset.
+For the full data description please refer to <a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones</a> and REAME file included in dataset.
 
 <p><strong>Processed data</strong>: it consists of 180 observation for 68 variables. The variables includes subject, activity performed and averages for only  mean and standard deviation features of source data, by subject and activity.</p>
 
