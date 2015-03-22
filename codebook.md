@@ -33,7 +33,7 @@ For the full data description please refers to <a href="http://archive.ics.uci.e
 </li>
 <li><em>activity</em>: activity performed by a subject.
        <ul>
-       <li> Datatype: factor with 6 levels:WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS,SITTING, STANDING, LAYING</li>
+       <li> Datatype: factor with 6 levels:WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING</li>
        </ul>
 </li>
 <li><em>66 other variables</em>: average value by subject and activity of mean and standard deviation of featured measurements. <br>
