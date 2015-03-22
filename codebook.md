@@ -20,7 +20,7 @@ For the full data description please refers to <a href="http://archive.ics.uci.e
 
 <p><strong>Processed data</strong>: it consists of 180 observation for 68 variables. The variables includes subject, activity performed and averages for only  mean and standard deviation features of source data, by subject and activity.</p>
 
-<p>To arrive at the result dataset we first processed test and training data. For each of them we merged the 561-features vector, subject vector and activity vector into one data frame. Then we merged these test and training result data frames by rows to get one big data frame of 10299 by 563. By subsetting we got a new data frame which consists of only subject, activity performed and 66 variables of required mean and standard deviation of measurements. We change levels of activity variable to be more descriptive. Then we calculated mean for each of 66 variables for each activity and each subject.</p>
+<p>To arrive at the result dataset we first processed test and training data. For each of them we merged the 561-features vector, subject vector and activity vector into one data frame. Then we merged these test and training result data frames by rows to get one big data frame of 10299 by 563. By subsetting we got a new data frame which consists of only subject, activity performed and 66 variables of required mean and standard deviation of measurements. We change levels of activity variable to be more descriptive using data given in activity_labels. Then we calculated mean for each of 66 variables for each activity and each subject.</p>
 
 <p><strong>DATA DICTIONARY FOR THE RESULT DATASET</strong></p>
 
