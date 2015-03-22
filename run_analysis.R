@@ -29,7 +29,7 @@ colnames(merged_data)<-c("subject","activity",features$V2)
 
 ## STEP 2.Extracts only the measurements on the mean and standard deviation for each measurement
 
-## introducing selected_cols give us the freedom to modify the selection set forsu columns
+## introducing selected_cols give us the freedom to modify the selection set for columns
 ## credit Marco Melnykovych on data.frame[,grep(pattern,names(data.frame))]
 
 selected_cols <- c("subject","activity",features$V2[grep("mean\\(\\)|std\\(\\)",features$V2, ignore.case=FALSE)])
