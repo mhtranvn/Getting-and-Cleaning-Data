@@ -46,7 +46,7 @@ levels(selected_data$activity) <- activities$V2
 ```
 selected_cols <- gsub("\\(\\)","",selected_cols)
 colnames(selected_data) <- selected_cols
-``
+```
 * Convert the *selected_data* to *selected_tbl* type of tbl to use with *dplyr* package. 
 * Group this *selected_tbl* by subject and activity, then use *summarise_each()* to calculate means for each remaning featured variable by subject and activity.   
 ```
