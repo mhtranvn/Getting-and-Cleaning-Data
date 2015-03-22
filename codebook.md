@@ -25,9 +25,11 @@ For the full data description please refers to <a href="http://archive.ics.uci.e
 <p><strong>DATA DICTIONARY FOR THE RESULT DATASET</strong></p>
 
 <ul>
-<li><em>subject</em>: the subject who performed the activity. 
-       + Datatype: interger. 
-       + Values ranged from 1 to 30
+<li><em>subject</em>: the subject who performed the activity.
+       <ul>
+       <li> + Datatype: interger.</li> 
+       <li>+ Values ranged from 1 to 30</li>
+       </ul>
 </li>
 <li><em>activity</em>: activity performed by a subject. 
        + Datatype: factor with 6 levels:WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS,SITTING, STANDING, LAYING</li>
