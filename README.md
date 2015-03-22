@@ -42,6 +42,11 @@ selected_data$activity <- factor(selected_data$activity)
 ## change activity factor levels to a more descriptive names 
 levels(selected_data$activity) <- activities$V2
 ```
+* Remove "(" and ")" from *selected_data* vector of variable names to make them more compatible with R variable naming standard. Since we do not have more descriptive information in the source's *features_info.txt* so it is quite hard to give columns more descriptive names not running into the risk that it may incorrectly reflect the nature of data in the column. Here we only show that technically we can change variable names to something more descriptive by just modifying the names vector
+```
+selected_cols <- gsub("\\(\\)","",selected_cols)
+colnames(selected_data) <- selected_cols
+``
 * Convert the *selected_data* to *selected_tbl* type of tbl to use with *dplyr* package. 
 * Group this *selected_tbl* by subject and activity, then use *summarise_each()* to calculate means for each remaning featured variable by subject and activity.   
 ```
